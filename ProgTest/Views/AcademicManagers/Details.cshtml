@@ -1,0 +1,35 @@
+﻿@model ProgTest.Models.AcademicManager
+
+@{
+    ViewData["Title"] = "Academic Manager Details";
+}
+
+<div class="container mt-4" style="background-color: #f8f9fa; padding: 20px; border-radius: 10px;">
+    <h1 class="display-4 text-center mb-4">Academic Manager Details</h1>
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h4 class="card-title">Details for: @Model.FullName</h4>
+                    <hr />
+                    <dl class="row">
+                        <dt class="col-sm-3 font-weight-bold">Full Name</dt>
+                        <dd class="col-sm-9">@Html.DisplayFor(model => model.FullName)</dd>
+
+                        <dt class="col-sm-3 font-weight-bold">Email</dt>
+                        <dd class="col-sm-9">@Html.DisplayFor(model => model.Email)</dd>
+
+                        <dt class="col-sm-3 font-weight-bold">Phone Number</dt>
+                        <dd class="col-sm-9">@Html.DisplayFor(model => model.PhoneNumber)</dd>
+                    </dl>
+                </div>
+            </div>
+
+            <div class="text-center mt-4">
+                <a asp-action="Edit" asp-route-id="@Model?.ManagerId" class="btn btn-primary btn-lg px-4">Edit</a>
+                <a asp-action="Index" class="btn btn-secondary btn-lg px-4">Back to List</a>
+            </div>
+        </div>
+    </div>
+</div>

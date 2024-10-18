@@ -1,0 +1,44 @@
+﻿@model ProgTest.Models.Lecturer
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="container">
+    <!-- Centered container for better layout -->
+    <h1 class="my-4 text-center">Lecturer Details</h1> <!-- Centered title -->
+
+    <div class="card">
+        <!-- Added a card for visual separation -->
+        <div class="card-body">
+            <h4 class="card-title">Lecturer Information</h4>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.FullName)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.FullName)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.Email)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Email)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.PhoneNumber)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.PhoneNumber)
+                </dd>
+            </dl>
+        </div>
+    </div>
+
+    <div class="text-center my-3">
+        <!-- Centered actions -->
+        <a asp-action="Edit" asp-route-id="@Model?.LecturerId" class="btn btn-primary">Edit</a>
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    </div>
+</div>

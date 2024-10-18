@@ -1,0 +1,50 @@
+﻿@model IEnumerable<ProgTest.Models.ProgrammeCoordinator>
+
+@{
+    ViewData["Title"] = "Programme Coordinators";
+}
+
+<div class="container mt-5 p-4" style="background-color: #f8f9fa; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+    <!-- Card-like container with soft shadow and padding -->
+
+    <h1 class="text-center mb-4 display-4 text-dark">Programme Coordinators</h1>
+    <!-- Large, centered title -->
+
+    <div class="d-flex justify-content-end mb-3">
+        <!-- Right-aligned button -->
+        <a asp-action="Create" class="btn btn-success btn-lg shadow-sm">Create New Coordinator</a>
+    </div>
+
+    <div class="table-responsive">
+        <!-- Responsive table for better small screen support -->
+        <table class="table table-hover table-striped table-bordered shadow-sm" style="background-color: #ffffff; border-radius: 8px;">
+            <!-- Striped and hoverable rows, light shadow, and rounded corners -->
+            <thead class="thead-dark">
+                <!-- Dark header for contrast -->
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.FullName)</th>
+                    <th>@Html.DisplayNameFor(model => model.Email)</th>
+                    <th>@Html.DisplayNameFor(model => model.PhoneNumber)</th>
+                    <th class="text-center">Actions</th>
+                    <!-- Centered "Actions" column -->
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.FullName)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                        <td>@Html.DisplayFor(modelItem => item.PhoneNumber)</td>
+                        <td class="text-center">
+                            <a asp-action="Edit" asp-route-id="@item.CoordinatorId" class="btn btn-sm btn-warning shadow-sm">Edit</a>
+                            <a asp-action="Details" asp-route-id="@item.CoordinatorId" class="btn btn-sm btn-info shadow-sm ml-2">Details</a>
+                            <a asp-action="Delete" asp-route-id="@item.CoordinatorId" class="btn btn-sm btn-danger shadow-sm ml-2">Delete</a>
+                            <!-- Small buttons with shadows and margins for spacing -->
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

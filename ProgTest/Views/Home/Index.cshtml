@@ -1,0 +1,162 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <style>
+        body {
+            background-color: #f4f4f9;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .navbar {
+            background-color: #343a40; /* Darker navbar */
+        }
+
+        .navbar-brand, .nav-link {
+            color: white !important;
+        }
+
+        .navbar-nav .nav-link:hover {
+            background-color: #495057; /* Highlight effect */
+            border-radius: 5px;
+        }
+
+        .hero-section {
+            background-image: url('https://via.placeholder.com/1500'); /* Updated to remove height specification */
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for better readability */
+        }
+
+            .hero-section h1 {
+                font-size: 3.5rem;
+                font-weight: bold;
+            }
+
+            .hero-section p {
+                font-size: 1.5rem; /* Slightly larger for better visibility */
+            }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: #007bff; /* Bright blue for feature icons */
+        }
+
+        .feature-card {
+            padding: 30px;
+            border: 1px solid #e3e6f0;
+            border-radius: 10px;
+            transition: all 0.3s;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+        }
+
+            .feature-card:hover {
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+                transform: translateY(-5px);
+            }
+
+        .footer {
+            background-color: #343a40;
+            color: white;
+            padding: 20px 0;
+        }
+
+            .footer a {
+                color: #adb5bd;
+                margin: 0 10px;
+            }
+
+                .footer a:hover {
+                    color: white;
+                }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">ClaimApp</a> <!-- Updated app name -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Lecturers">Lecturers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Claims">Claims</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Documents">Documents</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/ClaimTracker">Claim Tracker</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="hero-section text-center">
+        <h1 class="display-4">ClaimApp</h1> <!-- Updated app name -->
+        <p class="lead">Your go-to platform for managing claims and documents seamlessly.</p>
+        <a href="/Claims" class="btn btn-light btn-lg mt-4">Get Started</a> <!-- Call to action button -->
+    </div>
+
+    <div class="container my-5">
+        <h2 class="text-center mb-4">Key Features</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="text-center feature-card">
+                    <i class="fas fa-laptop-code feature-icon"></i>
+                    <h4 class="mt-3">Responsive Design</h4>
+                    <p>Experience seamless access across all devices.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="text-center feature-card">
+                    <i class="fas fa-users feature-icon"></i>
+                    <h4 class="mt-3">User-Friendly</h4>
+                    <p>Intuitive interface for effortless navigation.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="text-center feature-card">
+                    <i class="fas fa-shield-alt feature-icon"></i>
+                    <h4 class="mt-3">Secure</h4>
+                    <p>Your data is safeguarded with top-notch security measures.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer text-center">
+        <div class="container">
+            <div>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <span>&copy; 2024 ClaimApp - All rights reserved.</span>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>

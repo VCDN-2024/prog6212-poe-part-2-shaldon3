@@ -1,0 +1,74 @@
+﻿@model IEnumerable<ProgTest.Models.ClaimApprovalViewModel>
+
+<div class="container my-5">
+    <h2 class="text-center display-4 mb-4">Claim Approvals</h2> <!-- Enhanced title with larger font -->
+
+    <div class="table-responsive">
+        <table class="table table-hover table-striped table-bordered shadow-sm">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Claim ID</th>
+                    <th>Lecturer Name</th>
+                    <th>Hours Worked</th>
+                    <th>Hourly Rate</th>
+                    <th>Total Amount</th>
+                    <th>Claim Date</th>
+                    <th>Approval Status</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var claim in Model)
+                {
+                    <tr>
+                        <td>@claim.ClaimId</td>
+                        <td>@claim.LecturerName</td>
+                        <td>@claim.HoursWorked</td>
+                        <td>@claim.HourlyRate</td>
+                        <td>@claim.TotalAmount</td>
+                        <td>@claim.ClaimDate.ToString("yyyy/MM/dd")</td>
+                        <td>
+                            @{
+                                string coordinatorApproval = claim.IsCoordinatorApproved ? "Approved" : "Not Approved";
+                                string managerApproval = claim.IsManagerApproved ? "Approved" : "Not Approved";
+                            }
+                            <span class="text-success">Coordinator: @coordinatorApproval</span>,
+                            <span class="text-info">Manager: @managerApproval</span> <!-- Color-coded status text -->
+                        </td>
+                        <td class="text-center">
+                            <a asp-action="Edit" asp-route-id="@claim.ClaimId" class="btn btn-sm btn-outline-primary mx-1">Edit</a>
+                            <form asp-action="Approve" asp-route-id="@claim.ClaimId" method="post" class="d-inline">
+                                <button type="submit" class="btn btn-sm btn-success mx-1">Approve</button>
+                            </form>
+                            <form asp-action="Reject" asp-route-id="@claim.ClaimId" method="post" class="d-inline">
+                                <button type="submit" class="btn btn-sm btn-danger mx-1">Reject</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<style>
+    .btn {
+        transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions for button hover effects */
+    }
+
+    .btn-success:hover {
+        background-color: #218838; /* Darker green on hover */
+    }
+
+    .btn-danger:hover {
+        background-color: #c82333; /* Darker red on hover */
+    }
+
+    .table thead th {
+        vertical-align: middle; /* Center header text vertically */
+    }
+
+    .table tbody tr:hover {
+        background-color: rgba(0, 123, 255, 0.1); /* Light background on hover */
+    }
+</style>

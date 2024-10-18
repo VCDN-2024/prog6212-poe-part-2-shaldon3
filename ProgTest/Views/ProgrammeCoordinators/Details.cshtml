@@ -1,0 +1,44 @@
+﻿@model ProgTest.Models.ProgrammeCoordinator
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1 class="text-center my-4">Programme Coordinator Details</h1> <!-- Centered title with margin -->
+
+<div class="container">
+    <h4 class="text-center">Programme Coordinator</h4>
+    <hr />
+
+    <dl class="row">
+        <dt class="col-sm-2 font-weight-bold">
+            <!-- Added bold styling -->
+            @Html.DisplayNameFor(model => model.FullName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FullName)
+        </dd>
+
+        <dt class="col-sm-2 font-weight-bold">
+            <!-- Added bold styling -->
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt class="col-sm-2 font-weight-bold">
+            <!-- Added bold styling -->
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </dd>
+    </dl>
+
+    <div class="text-center mt-4">
+        <!-- Centered actions with margin -->
+        <a asp-action="Edit" asp-route-id="@Model?.CoordinatorId" class="btn btn-primary">Edit</a> <!-- Styled Edit button -->
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a> <!-- Styled Back button -->
+    </div>
+</div>

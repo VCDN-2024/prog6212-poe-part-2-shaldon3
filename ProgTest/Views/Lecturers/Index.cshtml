@@ -1,0 +1,54 @@
+﻿@model IEnumerable<ProgTest.Models.Lecturer>
+
+@{
+    ViewData["Title"] = "Lecturers";
+}
+
+<div class="container">
+    <h1 class="my-5 text-center display-4">Lecturers</h1> <!-- Centered and emphasized title -->
+
+    <p class="text-right">
+        <a asp-action="Create" class="btn btn-success btn-lg">Create New</a> <!-- Larger and more noticeable button -->
+    </p>
+
+    <table class="table table-hover table-striped table-bordered">
+        <!-- Hover effect and borders for the table -->
+        <thead class="thead-dark">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.FullName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PhoneNumber)
+                </th>
+                <th class="text-center">Actions</th> <!-- Centered actions header -->
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FullName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PhoneNumber)
+                    </td>
+                    <td class="text-center">
+                        <!-- Centered and spaced action buttons -->
+                        <a asp-action="Edit" asp-route-id="@item.LecturerId" class="btn btn-warning btn-sm mx-1">Edit</a>
+                        <a asp-action="Details" asp-route-id="@item.LecturerId" class="btn btn-info btn-sm mx-1">Details</a>
+                        <a asp-action="Delete" asp-route-id="@item.LecturerId" class="btn btn-danger btn-sm mx-1">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

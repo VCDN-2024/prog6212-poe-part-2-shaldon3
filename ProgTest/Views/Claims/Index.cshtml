@@ -1,0 +1,52 @@
+﻿@model IEnumerable<ProgTest.Models.Claim>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container my-5">
+    <!-- Container with margin for better spacing -->
+    <h1 class="text-center display-4 mb-4">Claims Index</h1> <!-- Larger and more stylish title -->
+
+    <p class="text-center">
+        <a asp-action="Create" class="btn btn-success btn-lg">Create New Claim</a> <!-- Larger, styled button -->
+    </p>
+
+    <div class="table-responsive">
+        <!-- Responsive table container -->
+        <table class="table table-hover table-striped table-bordered shadow-sm">
+            <!-- Hoverable rows, striped for readability, with borders and a slight shadow -->
+            <thead class="thead-dark">
+                <!-- Dark header for contrast -->
+                <tr>
+                    <th>Lecturer Name</th>
+                    <th>Hours Worked</th>
+                    <th>Hourly Rate</th>
+                    <th>Total Amount</th>
+                    <th>Claim Date</th>
+                    <th>Is Submitted</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.LecturerName)</td>
+                        <td>@Html.DisplayFor(modelItem => item.HoursWorked)</td>
+                        <td>@Html.DisplayFor(modelItem => item.HourlyRate)</td>
+                        <td>@Html.DisplayFor(modelItem => item.TotalAmount)</td>
+                        <td>@Html.DisplayFor(modelItem => item.ClaimDate)</td>
+                        <td>@Html.DisplayFor(modelItem => item.IsSubmitted)</td>
+                        <td class="text-center">
+                            <!-- Centered action buttons -->
+                            <a asp-action="Edit" asp-route-id="@item.ClaimId" class="btn btn-warning btn-sm mx-1">Edit</a>
+                            <a asp-action="Details" asp-route-id="@item.ClaimId" class="btn btn-info btn-sm mx-1">Details</a>
+                            <a asp-action="Delete" asp-route-id="@item.ClaimId" class="btn btn-danger btn-sm mx-1">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

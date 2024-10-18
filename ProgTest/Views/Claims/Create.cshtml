@@ -1,0 +1,64 @@
+﻿@model ProgTest.Models.Claim
+
+@{
+    ViewData["Title"] = "Create Claim";
+}
+
+<div class="container mt-4">
+    <!-- Centered container for better layout -->
+    <h1 class="my-4 text-center">Create Claim</h1> <!-- Centered title with margin -->
+    <h4 class="text-primary text-center">Claim Details</h4> <!-- Styled subtitle -->
+    <hr />
+
+    <div class="row justify-content-center">
+        <!-- Centered form -->
+        <div class="col-md-8">
+            <!-- Wider column for form -->
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                <div class="form-group">
+                    <label asp-for="LecturerName" class="font-weight-bold"></label>
+                    <input asp-for="LecturerName" class="form-control" placeholder="Enter lecturer's name" />
+                    <span asp-validation-for="LecturerName" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="HoursWorked" class="font-weight-bold"></label>
+                    <input asp-for="HoursWorked" class="form-control" placeholder="Enter hours worked" />
+                    <span asp-validation-for="HoursWorked" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="HourlyRate" class="font-weight-bold"></label>
+                    <input asp-for="HourlyRate" class="form-control" placeholder="Enter hourly rate" />
+                    <span asp-validation-for="HourlyRate" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="ClaimDate" class="font-weight-bold"></label>
+                    <input asp-for="ClaimDate" class="form-control" type="date" />
+                    <span asp-validation-for="ClaimDate" class="text-danger"></span>
+                </div>
+
+                <div class="form-group form-check">
+                    <input asp-for="IsSubmitted" class="form-check-input" />
+                    <label class="form-check-label" asp-for="IsSubmitted"></label>
+                </div>
+
+                <div class="text-center mt-4">
+                    <input type="submit" value="Create" class="btn btn-success btn-lg px-4" /> <!-- Made the button larger and added padding -->
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="text-center mt-4">
+        <!-- Centered Back button -->
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    </div>
+</div>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

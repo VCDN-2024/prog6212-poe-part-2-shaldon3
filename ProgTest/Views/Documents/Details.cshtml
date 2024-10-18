@@ -1,0 +1,53 @@
+﻿@model ProgTest.Models.Document
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="container">
+    <!-- Centered container for better layout -->
+    <h1 class="my-4 text-center">Document Details</h1> <!-- Centered title with margin -->
+
+    <div>
+        <h4 class="text-center">Document Information</h4> <!-- Centered subheading -->
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.FileName)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.FileName)
+            </dd>
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.FilePath)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.FilePath)
+            </dd>
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.FileSize)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.FileSize)
+            </dd>
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.UploadedDate)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.UploadedDate)
+            </dd>
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Claim)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Claim.LecturerName)
+            </dd>
+        </dl>
+    </div>
+
+    <div class="text-center my-4">
+        <!-- Centered action links with margin -->
+        <a asp-action="Edit" asp-route-id="@Model?.DocumentId" class="btn btn-warning">Edit</a>
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    </div>
+</div>

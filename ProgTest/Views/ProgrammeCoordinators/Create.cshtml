@@ -1,0 +1,51 @@
+﻿@model ProgTest.Models.ProgrammeCoordinator
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="container my-4">
+    <h1 class="text-center">Create Programme Coordinator</h1> <!-- Centered title -->
+
+    <h4 class="text-center mb-4">Programme Coordinator Details</h4> <!-- Added margin for spacing -->
+    <hr />
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <!-- Increased column size for better input space -->
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div> <!-- Margin for spacing -->
+
+                <div class="form-group">
+                    <label asp-for="FullName" class="control-label font-weight-bold"></label> <!-- Bold label for emphasis -->
+                    <input asp-for="FullName" class="form-control" placeholder="Enter full name" /> <!-- Added placeholder for guidance -->
+                    <span asp-validation-for="FullName" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label font-weight-bold"></label> <!-- Bold label for emphasis -->
+                    <input asp-for="Email" class="form-control" placeholder="Enter email address" /> <!-- Added placeholder for guidance -->
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="PhoneNumber" class="control-label font-weight-bold"></label> <!-- Bold label for emphasis -->
+                    <input asp-for="PhoneNumber" class="form-control" placeholder="Enter phone number" /> <!-- Added placeholder for guidance -->
+                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary btn-lg btn-block" /> <!-- Full-width button with larger size -->
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="text-center mt-4">
+        <a asp-action="Index" class="btn btn-secondary btn-lg">Back to List</a> <!-- Larger styled button for back link -->
+    </div>
+</div>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

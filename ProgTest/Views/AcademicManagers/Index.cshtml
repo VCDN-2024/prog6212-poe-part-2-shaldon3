@@ -1,0 +1,47 @@
+﻿@model IEnumerable<ProgTest.Models.AcademicManager>
+
+@{
+    ViewData["Title"] = "Academic Managers";
+}
+
+<div class="container mt-5 p-4" style="background-color: #f8f9fa; border-radius: 15px; box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);">
+    <!-- Styled container with shadow and background color -->
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="display-4 text-dark">Academic Managers</h1>
+        <!-- Display-4 title with text-dark for contrast -->
+        <a asp-action="Create" class="btn btn-success btn-lg shadow-sm">Create New Manager</a>
+        <!-- Large, shadowed button -->
+    </div>
+
+    <div class="table-responsive">
+        <!-- Responsive table for better handling on small screens -->
+        <table class="table table-bordered table-hover table-striped shadow-sm">
+            <!-- Table with hover effect, striped rows, and light shadow -->
+            <thead class="thead-dark">
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.FullName)</th>
+                    <th>@Html.DisplayNameFor(model => model.Email)</th>
+                    <th>@Html.DisplayNameFor(model => model.PhoneNumber)</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.FullName)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                        <td>@Html.DisplayFor(modelItem => item.PhoneNumber)</td>
+                        <td class="text-center">
+                            <a asp-action="Edit" asp-route-id="@item.ManagerId" class="btn btn-sm btn-warning shadow-sm">Edit</a>
+                            <a asp-action="Details" asp-route-id="@item.ManagerId" class="btn btn-sm btn-info shadow-sm ml-2">Details</a>
+                            <a asp-action="Delete" asp-route-id="@item.ManagerId" class="btn btn-sm btn-danger shadow-sm ml-2">Delete</a>
+                            <!-- Buttons with small size, margin between them, and slight shadow -->
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

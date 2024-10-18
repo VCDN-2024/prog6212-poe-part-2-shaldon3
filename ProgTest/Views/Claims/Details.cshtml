@@ -1,0 +1,54 @@
+﻿@model ProgTest.Models.Claim
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="container">
+    <!-- Centered container for better layout -->
+    <h1 class="my-4 text-center">Claim Details</h1> <!-- Centered title with margin -->
+
+    <div>
+        <h4 class="text-center">Claim Information</h4> <!-- Centered subtitle -->
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.LecturerName)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.LecturerName)
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.HoursWorked)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.HoursWorked)
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.HourlyRate)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.HourlyRate)
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.ClaimDate)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.ClaimDate)
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.IsSubmitted)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.IsSubmitted)
+            </dd>
+        </dl>
+    </div>
+
+    <div class="text-center mt-4">
+        <!-- Centered action links -->
+        <a asp-action="Edit" asp-route-id="@Model?.ClaimId" class="btn btn-primary">Edit</a>
+        <span class="mx-2">|</span>
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    </div>
+</div>
